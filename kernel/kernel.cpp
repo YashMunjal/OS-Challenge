@@ -4,7 +4,7 @@ void printf(char* str)
 
     for(int i=0;str[i]!='\0';++i)
     {
-        videoMemory[i]= (videoMemory[i] & 0xFF00) | str[i];
+        VideoMemory[i]= (VideoMemory[i] & 0xFF00) | str[i];
     }
 }
 
