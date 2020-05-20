@@ -10,6 +10,6 @@ void printf(char* str)
 
 void kernelMain(void* multiboot_structure, unsigned int magicnumber)
 {
-    printf("Welcome to Yash's OS");
+    printf("Welcome to Yash ki OS");
     while(1);
 }
