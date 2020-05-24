@@ -7,9 +7,8 @@ codeSegmentSelector(0,64*1024*1024,0x9A),
 dataSegmentSelector(0,64*1024*1024,0x92)
 {
     uint32_t i[2];
-    i[0] = (uint32_t)this;
-    i[1] = sizeof(GlobalDescriptorTable) << 16;
-
+    i[1] = (uint32_t)this;
+    i[0] = sizeof(GlobalDescriptorTable) << 16;
     asm volatile("lgdt (%0)": :"p" (((uint8_t *) i)+2));
 
 }
@@ -31,7 +30,7 @@ uint16_t GlobalDescriptorTable::CodeSegmentSelector()
     
 }
 
-GlobalDescriptorTable::SegmentDescriptor::SegmentDescriptor(uint32_t base,uint32_t limit,uint32_t flags)
+GlobalDescriptorTable::SegmentDescriptor::SegmentDescriptor(uint32_t base,uint32_t limit,uint32_t type)
 {
     uint8_t* target = (uint8_t*)this;
     if(limit <= 65536)
