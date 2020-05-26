@@ -33,7 +33,7 @@ int_bottom:
     pushl %gs
     
     pushl %esp
-    push(interruptnumber)
+    push (interruptnumber)
     call _ZN16InterruptManager15HandleInterruptEhj
     movl %eax, %esp 
 
