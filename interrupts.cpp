@@ -11,11 +11,11 @@ void InterruptManager::SetInterruptDescriptorTableEntry(uint8_t interrupt,
 {
     const uint8_t IDT_DESC_PRESENT = 0x80;
 
-    interruptDescriptorTable[interruptNumber].handlerAddressLowBits = ((uint32_t) handler) & 0xFFFF;
-    interruptDescriptorTable[interruptNumber].handlerAddressHighBits = (((uint32_t) handler) >> 16) & 0xFFFF;
-    interruptDescriptorTable[interruptNumber].gdt_codeSegmentSelector = codeSegmentSelectorOffset;
-    interruptDescriptorTable[interruptNumber].access= IDT_DESC_PRESENT | DescriptorType | ((DescriptorPrivilegeLevel&3)  << 5);
-    interruptDescriptorTable[interruptNumber].reserved=0;
+    interruptDescriptorTable[interrupt].handlerAddressLowBits = ((uint32_t) handler) & 0xFFFF;
+    interruptDescriptorTable[interrupt].handlerAddressHighBits = (((uint32_t) handler) >> 16) & 0xFFFF;
+    interruptDescriptorTable[interrupt].gdt_codeSegmentSelector = codeSegmentSelectorOffset;
+    interruptDescriptorTable[interrupt].access= IDT_DESC_PRESENT | DescriptorType | ((DescriptorPrivilegeLevel&3)  << 5);
+    interruptDescriptorTable[interrupt].reserved=0;
 }
 InterruptManager::InterruptManager(GlobalDescriptorTable *gdt)
 {
