@@ -1,5 +1,6 @@
 #include "types.h"
 #include "gdt.h"
+#include "interrupts.h"
 
 void printf(char* str)
 {
@@ -43,5 +44,8 @@ extern "C" void kernelMain(void* multiboot_structure, uint32_t magicnumber)
     printf("I have added new feed line support too");
 
     GlobalDescriptorTable gdt;
+    InterruptManager interrupt(&gdt);
+
+    interrupts.Activate();
     while(1);
 }
