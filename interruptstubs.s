@@ -20,8 +20,8 @@ _ZN16InterruptManager26HandleInterruptRequest\num\()Ev:
     jmp int_bottom
 .endm
 
-HandleException 0x00
-HandleException 0x01
+HandleInterruptRequest 0x00
+HandleInterruptRequest 0x01
 
 int_bottom:
 
