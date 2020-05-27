@@ -50,7 +50,7 @@ void InterruptManager::Activate()
 
 
 
-uint32_t InterruptManager::handleInterrupt(uint8_t interruptNumber, uint32_t esp)
+uint32_t InterruptManager::HandleInterrupt(uint8_t interruptNumber, uint32_t esp)
 {
     printf("INTERRUPT");
     return esp;
